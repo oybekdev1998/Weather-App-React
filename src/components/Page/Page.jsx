@@ -10,18 +10,25 @@ import useForecast from '../../hooks/useForecast'
 import Forecast from '../Forecast/Forecast'
 
 const Page = () => {
-  const { isError, isLoading, forecast } = useForecast()
+  const { isError, isLoading, forecast, submitRequest } = useForecast()
+  
+  const onSubmit = (value) => {
+    submitRequest(value)
+  }
 
   return (
     <Fragment>
       <Header />
-      <div className={styles.box}>
-        <Form />
-        {isError && <Error message={isError} />}
-        {isLoading && <Loader />}
-        {forecast && <Forecast /> }
-      </div>
-      
+      {!forecast && (
+        <div className={`${styles.box} position-relative`}>
+          
+          { !isLoading && <Form submitSearch={onSubmit} /> }
+          { isError && <Error message={isError} /> }
+          { isLoading && <Loader /> }
+          { forecast && <Forecast /> }
+        </div>
+      )}
+      {forecast && <Forecast forecast={forecast} />}
     </Fragment>
   )
 }

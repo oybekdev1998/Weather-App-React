@@ -1,12 +1,14 @@
-import React, {useState} from 'react';
+import React, {useState} from 'react'
+import PropTypes from 'prop-types'
 
 import styles from './Form.module.css';
 
-const Form = () => {
+const Form = ({ submitSearch }) => {
 
   const [location, setLocation] = useState('')
   const onSubmit = (e) => {
     e.preventDefault()
+    submitSearch(location)
 
   }
 
@@ -27,5 +29,9 @@ const Form = () => {
       </form>
   );
 };
+
+Form.propTypes = {
+  submitSearch: PropTypes.func.isRequired,
+}
 
 export default Form;
