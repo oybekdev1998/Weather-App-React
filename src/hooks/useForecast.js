@@ -68,4 +68,4 @@ const useForecast = () => {
     };
 };
 
-export default useForecast;
+export default useForecast; 

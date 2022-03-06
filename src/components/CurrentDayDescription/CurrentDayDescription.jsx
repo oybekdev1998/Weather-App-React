@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import CurrentDayDescriptionItem from '../CurrentDayDescriptionItem/CurrentDayDescriptionItem';
+import CurrentDayDescriptionItem from '../CurrentDayDescriptionItem';
 
 const CurrentDayDescription = ({ forecast }) => (
     <div className="mt-4 mt-md-2">
